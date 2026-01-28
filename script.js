@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const input = document.getElementById("ip");
 const button = document.getElementById("btn");
 const output = document.getElementById("output");
@@ -6,48 +5,48 @@ const output = document.getElementById("output");
 button.addEventListener("click", () => {
   const value = Number(input.value);
 
-  new Promise((resolve, reject) => {
+  new Promise(resolve => {
     setTimeout(() => {
-      resolve(value);
       output.textContent = `Result: ${value}`;
+      resolve(value);
     }, 2000);
   })
     .then(num => {
       return new Promise(resolve => {
         setTimeout(() => {
-          output.textContent = `Result: ${num}`;
-          resolve(num * 2);
+          const res = num * 2;
+          output.textContent = `Result: ${res}`;
+          resolve(res);
         }, 1000);
       });
     })
     .then(num => {
       return new Promise(resolve => {
         setTimeout(() => {
-          output.textContent = `Result: ${num}`;
-          resolve(num - 3);
+          const res = num - 3;
+          output.textContent = `Result: ${res}`;
+          resolve(res);
         }, 1000);
       });
     })
     .then(num => {
       return new Promise(resolve => {
         setTimeout(() => {
-          output.textContent = `Result: ${num}`;
-          resolve(num / 2);
+          const res = num / 2;
+          output.textContent = `Result: ${res}`;
+          resolve(res);
         }, 1000);
       });
     })
     .then(num => {
       return new Promise(resolve => {
         setTimeout(() => {
-          output.textContent = `Result: ${num}`;
-          resolve(num + 10);
+          const res = num + 10;
+          resolve(res);
         }, 1000);
       });
     })
     .then(finalValue => {
       output.textContent = `Final Result: ${finalValue}`;
-    })
-    .catch(err => {
-      console.error(err);
     });
 });
